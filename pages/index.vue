@@ -6,11 +6,31 @@
         <Icon v-else name="line-md:sunny-filled-loop-to-moon-filled-transition" size="1.5em" />
       </button>
       <ul>
-        <li><a>Início</a></li>
-        <li><a>Sobre mim</a></li>
-        <li>Projetos</li>
-        <li>Experiência</li>
-        <li>Contato</li>
+        <li>
+          <a href="#home">
+            Início
+          </a>
+        </li>
+        <li>
+          <a href="#about-me">
+            Sobre mim
+          </a>
+        </li>
+        <li>
+          <a href="#projects">
+            Projetos
+          </a>
+        </li>
+        <li>
+          <a href="#experience">
+            Experiência
+          </a>
+        </li>
+        <li>
+          <a href="#contact">
+            Contato
+          </a>
+        </li>
       </ul>
       <button class="ml-2 hidden md:block" @click.prevent="app.toggleDarkMode">
         <Icon v-if="app.darkMode" name="line-md:moon-to-sunny-outline-loop-transition" size="1.5em" />
@@ -21,7 +41,7 @@
       <div class="absolute inset-x-0 hidden h-1/2 lg:block" aria-hidden="true"></div>
 
       <!-- Landing -->
-      <div data-aos="fade-up" class="mx-auto max-w-7xl lg:bg-transparent lg:px-8">
+      <div id="home" data-aos="fade-up" class="mx-auto max-w-7xl lg:bg-transparent lg:px-8">
         <div class="lg:grid lg:grid-cols-12">
           <div class="relative z-10 lg:col-span-4 lg:col-start-1 lg:row-start-1 lg:bg-transparent lg:py-16">
             <div class="absolute inset-x-0 h-1/2 lg:hidden" aria-hidden="true"></div>
@@ -116,7 +136,7 @@
       </div>
 
       <!-- About Me -->
-      <div data-aos="fade-up" class="relative isolate z-10 mt-32 sm:mt-48">
+      <div id="about-me" data-aos="fade-up" class="relative isolate z-10 mt-32 sm:mt-48">
         <div class="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 justify-center overflow-hidden [mask-image:radial-gradient(50%_45%_at_50%_55%,white,transparent)]">
           <svg class="h-[40rem] w-[80rem] flex-none stroke-gray-100/30" aria-hidden="true">
             <defs>
@@ -179,8 +199,8 @@
 
           <div class="py-24"></div>
 
-          <div class="lg:col-span-10 lg:col-start-1 lg:row-start-1 lg:grid lg:grid-cols-10 lg:items-center lg:rounded-3xl">
-            <div class="relative mx-auto max-w-md space-y-6 px-6 py-12 sm:max-w-3xl sm:py-16 lg:col-span-6 lg:col-start-4 lg:max-w-none lg:p-0">
+          <div id="projects" class="lg:col-span-10 lg:col-start-1 lg:row-start-1 lg:grid lg:grid-cols-10 lg:items-center lg:rounded-3xl">
+            <div class="relative max-w-md space-y-6 px-6 py-12 sm:max-w-3xl sm:py-16 lg:col-span-6 lg:col-start-1 lg:max-w-none lg:p-0">
               <h2 data-aos="fade-right" class="text-left text-2xl font-semibold leading-8 text-green-500">
                 # Projetos
               </h2>
@@ -280,7 +300,7 @@
                       </span>
                     </div>
                     <div>
-                      <a class="block w-full rounded-md border border-transparent bg-white p-1 text-center text-base font-medium text-orange-500 shadow-md hover:bg-slate-50 sm:inline-block sm:w-auto" href="#">
+                      <a class="block w-full rounded-md border border-transparent bg-white p-1 text-center text-base font-medium text-orange-500 shadow-md hover:bg-slate-50 sm:inline-block sm:w-auto" :href="project.link" target="_blank">
                         <span v-if="project.link.includes('github')">
                           <Icon name="mdi:github" size="1.5em" />
                           <span class="text-xs text-gray-400 ml-3">
@@ -304,7 +324,7 @@
       </div>
 
       <!-- Logo cloud -->
-      <div data-aos="fade-up" class="relative isolate z-10 mt-32 sm:mt-48">
+      <div id="experience" data-aos="fade-up" class="relative isolate  mt-32 sm:mt-48">
         <div class="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 justify-center overflow-hidden [mask-image:radial-gradient(50%_45%_at_50%_55%,white,transparent)]">
           <svg class="h-[40rem] w-[80rem] flex-none stroke-gray-100/30" aria-hidden="true">
             <defs>
@@ -351,6 +371,33 @@
           </div>
         </div>
       </div>
+
+      <div class="my-32">
+        <div id="contact" data-aos="fade-right" class="lg:col-span-10 lg:col-start-1 lg:row-start-1 lg:grid lg:grid-cols-10 lg:items-center lg:rounded-3xl">
+          <div class="relative max-w-md space-y-6 px-6 py-12 sm:max-w-3xl sm:py-16 lg:col-span-6 lg:col-start-1 lg:max-w-none lg:p-0">
+            <h2 class="text-left text-2xl font-semibold leading-8 text-green-500">
+              # Contato
+            </h2>
+            <span>
+              Entre em contato comigo através dos meios
+              <div>
+                <a class="block hover:text-indigo-300" href="mailto:gabriel.aquino@outlook.com">
+                  <Icon name="line-md:email" class="mr-2" />
+                  gabriel.aquino@outlook.com
+                </a>
+                <a class="block hover:text-indigo-300" href="https://wa.me/5511991610328" target="_blank">
+                  <Icon name="mdi:whatsapp" class="mr-2" />
+                  +55 (11) 99161-0328
+                </a>
+                <a class="block hover:text-indigo-300" href="https://linkedin.com/in/gaqno" target="_blank">
+                  <Icon name="line-md:linkedin" class="mr-2" />
+                  LinkedIn
+                </a>
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 </template>
@@ -380,7 +427,7 @@ const projects = ref([
     banner: MarvelIMG,
     created_at: "",
     description: "CRUD de heróis da Marvel, contendo dados de personagens, quadrinhos, séries e eventos.",
-    link: "https://github.com/gaqno/marvel_nuxt3/",
+    link: "https://marvel-nuxt3.vercel.app/",
     name: "Marvel Heroes",
     tecnologies: ["Vue", "Nuxt", "TailwindCSS", "JavaScript", "TypeScript"],
   },

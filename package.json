@@ -1,5 +1,10 @@
 {
-  "name": "nuxt-app",
+  "name": "landing-gaqno",
+  "author": {
+    "name": "Gabriel Aquino - Desenvolvedor",
+    "email": "gabriel.aquino@outlook.com",
+    "url": "https://landing-gaqno.vercel.app"
+  },
   "private": true,
   "scripts": {
     "build": "nuxt build",
