@@ -375,7 +375,7 @@
       <div class="my-32">
         <div id="contact" data-aos="fade-right" class="lg:col-span-10 lg:col-start-1 lg:row-start-1 lg:grid lg:grid-cols-10 lg:items-center lg:rounded-3xl">
           <div class="relative max-w-md space-y-6 px-6 py-12 sm:max-w-3xl sm:py-16 lg:col-span-6 lg:col-start-2 lg:max-w-none lg:p-0">
-            <h2 class="text-left text-2xl font-semibold leading-8 text-green-500">
+            <h2 class="text-left text-2xl font-semibold leading-8 text-green-500 ">
               # Contato
             </h2>
             <span>
