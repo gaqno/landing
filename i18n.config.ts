@@ -1,20 +1,6 @@
 export default defineI18nConfig(() => ({
   legacy: false,
   locale: "pt",
-  locales: [
-    {
-      code: "en",
-      iso: "en-US",
-    },
-    {
-      code: "pt",
-      iso: "pt-BR",
-    },
-    {
-      code: "cn",
-      iso: "zh-CN",
-    },
-  ],
   messages: {
     pt: {
       test: "Teste",
