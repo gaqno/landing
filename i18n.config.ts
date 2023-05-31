@@ -18,6 +18,7 @@ export default defineI18nConfig(() => ({
   locale: "pt",
   messages: {
     pt: {
+      test: "Teste",
       home: "Início",
       about: "Sobre mim",
       experience: "Experiência",
