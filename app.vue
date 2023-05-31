@@ -23,12 +23,8 @@ const onBeforeEnter = async () => {
   await finalizePendingLocaleChange();
 };
 
-useHead({ title: "Gabriel Aquino" });
-definePageMeta({
+useHead({
   title: "Gabriel Aquino",
-  description: "Gabriel Aquino, Software Engineer",
-  image: "https://landing-gaqno.vercel.app/static/logo.png",
-  url: "https://landing-gaqno.vercel.app",
 });
 
 </script>
