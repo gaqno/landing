@@ -1,5 +1,6 @@
 {
   "name": "landing-gaqno",
+  "type": "module",
   "author": {
     "name": "Gabriel Aquino - Desenvolvedor",
     "email": "gabriel.aquino@outlook.com",
