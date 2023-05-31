@@ -1,18 +1,4 @@
 export default defineI18nConfig(() => ({
-  locales: [
-    {
-      code: "en",
-      iso: "en-US",
-    },
-    {
-      code: "pt",
-      iso: "pt-BR",
-    },
-    {
-      code: "cn",
-      iso: "zh-CN",
-    },
-  ],
   defaultLocale: "pt",
   legacy: false,
   locale: "pt",
