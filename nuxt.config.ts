@@ -19,4 +19,7 @@ export default defineNuxtConfig({
       ["defineStore", "definePiniaStore"], // import { defineStore as definePiniaStore } from 'pinia'
     ],
   },
+  i18n: {
+    vueI18n: "./i18n.config.ts",
+  },
 });

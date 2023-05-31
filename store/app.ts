@@ -2,6 +2,7 @@ export const useAppStore = defineStore("app", {
   state: () => ({
     darkMode: false,
     loading: false,
+    language: "pt",
     modal: {
       show: false,
       title: "",
@@ -24,6 +25,10 @@ export const useAppStore = defineStore("app", {
     setModal (modal: { show: boolean; title: string; content: string }) {
       this.modal = modal;
     },
-
+    toggleLanguage () {
+      const langs = ["pt", "en", "cn"];
+      const index = langs.indexOf(this.language);
+      this.language = langs[(index + 1) % langs.length];
+    },
   },
 });

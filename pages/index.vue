@@ -5,6 +5,29 @@
         <Icon v-if="app.darkMode" name="line-md:moon-to-sunny-outline-loop-transition" size="1.5em" />
         <Icon v-else name="line-md:sunny-filled-loop-to-moon-filled-transition" size="1.5em" />
       </button>
+      <label class="swap swap-rotate">
+        <!-- this hidden checkbox controls the state -->
+        <input type="checkbox" class="hidden">
+        <Icon
+          v-if="locale === 'pt'"
+          name="game-icons:brazil-flag"
+          size="1.5em"
+          @click="setLocale('cn')"
+        />
+        <Icon
+          v-if="locale === 'cn'"
+          name="emojione-monotone:flag-for-china"
+          size="1.5em"
+          @click="setLocale('en')"
+        />
+        <Icon
+          v-if="locale === 'en'"
+          name="icon-park-outline:english"
+          size="1.5em"
+          @click="setLocale('pt')"
+        />
+      </label>
+      <button class="ml-2 block md:hidden mr-4" @click.prevent="app.toggleDarkMode" />
       <ul>
         <li>
           <a href="#home">
@@ -38,13 +61,13 @@
       </button>
     </header>
     <section class="z-0 relative mt-12" aria-labelledby="join-heading">
-      <div class="absolute inset-x-0 hidden h-1/2 lg:block" aria-hidden="true"></div>
+      <div class="absolute inset-x-0 hidden h-1/2 lg:block" aria-hidden="true" />
 
       <!-- Landing -->
       <div id="home" data-aos="fade-up" class="mx-auto max-w-7xl lg:bg-transparent lg:px-8">
         <div class="lg:grid lg:grid-cols-12">
           <div class="relative z-10 lg:col-span-4 lg:col-start-1 lg:row-start-1 lg:bg-transparent lg:py-16">
-            <div class="absolute inset-x-0 h-1/2 lg:hidden" aria-hidden="true"></div>
+            <div class="absolute inset-x-0 h-1/2 lg:hidden" aria-hidden="true" />
             <div class="mx-auto max-w-md px-6 sm:max-w-3xl lg:max-w-none lg:p-0">
               <div class="aspect-h-6 aspect-w-10 sm:aspect-h-1 sm:aspect-w-2 lg:aspect-w-1">
                 <img class="rounded-3xl object-cover object-center shadow-2xl" :src="git.avatar_url" alt="">
@@ -115,20 +138,20 @@
             </div>
             <div class="relative mx-auto max-w-md space-y-6 px-6 py-12 sm:max-w-3xl sm:py-16 lg:col-span-6 lg:col-start-4 lg:max-w-none lg:p-0">
               <h1 class="text-gray-300 text-3xl md:text-5xl">
-                E aí, beleza? <br>
-                Me chamo <span class="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent">
+                {{ $t('whatsupp') }} <br>
+                {{ $t('my_name') }} <br><span class="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent">
                   Gabriel Aquino
                 </span>
               </h1>
               <p class="text-lg text-white">
-                Solucionador de problemas, apaixonado por tecnologia e desenvolvimento de software.
+                {{ $t('description') }}
               </p>
               <a
                 href="https://wa.me/+5511991610328"
                 target="_blank"
                 class="block w-full rounded-md border border-transparent bg-white px-5 py-3 text-center text-base font-medium text-blue-700 shadow-md hover:bg-slate-50 sm:inline-block sm:w-auto"
               >
-                Entre em contato
+                {{ $t('contact_me') }}
               </a>
             </div>
           </div>
@@ -167,24 +190,23 @@
           </h2>
           <div class="mx-auto mt-10 grid max-w-lg grid-cols-1 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-2 sm:gap-x-10 lg:mx-0 lg:max-w-none ">
             <p data-aos="fade-up">
-              👨‍💻 Sou um desenvolvedor de nível intermediário com 2 anos de experiência em desenvolvimento de aplicativos. Minha especialização está em desenvolvimento frontend, principalmente com o Vue em conjunto com Nuxt 3, Vuex e Pinia. Além disso, tenho habilidades em várias outras tecnologias, incluindo React, React Native, Redux, Context API, SQL, Prisma, Node e NestJS no back-end.
+              {{ $t('p_one') }}
             </p>
             <p data-aos="fade-up">
-              📚 Estou sempre procurando novos desafios e oportunidades para expandir meu conhecimento e habilidades como desenvolvedor, e mantenho-me atualizado com as últimas tendências, tecnologias e melhores práticas da indústria.
-            </p>
-
-            <p data-aos="fade-up">
-              🤝 Gosto de colaborar com equipes e indivíduos para criar soluções inovadoras que resolvam problemas de negócios complexos. Minha experiência anterior na Newcore me permitiu desenvolver habilidades em várias tecnologias, incluindo React, React Native, TypeScript, Node, Angular, NestJS, Docker, DataDog e Google Cloud.
-            </p>
-            <p data-aos="fade-up">
-              💻 Meu compromisso é produzir soluções eficientes e escaláveis para atender às necessidades de meus clientes. Tenho habilidades em Tailwind CSS para garantir interfaces de usuário atraentes e funcionais. Já entreguei projetos para clientes em várias indústrias, como imobiliária, telecomunicações e marketing.
-            </p>
-            <p data-aos="fade-up">
-              🏨 Além da minha experiência em tecnologia, tenho um histórico em atendimento ao cliente no ramo da hotelaria. Esta experiência me permitiu desenvolver habilidades de comunicação e empatia que são altamente valiosas na interação com usuários finais de sistemas de software.
+              {{ $t('p_two') }}
             </p>
 
             <p data-aos="fade-up">
-              🌟 Também sou interessado em ciências sociais como sociologia, história e filosofia. Esses assuntos me permitem explorar e entender as complexidades do comportamento humano e do mundo em que vivemos.
+              {{ $t('p_three') }}
+            </p>
+            <p data-aos="fade-up">
+              {{ $t('p_four') }}
+            </p>
+            <p data-aos="fade-up">
+              {{ $t('p_five') }}
+            </p>
+            <p data-aos="fade-up">
+              {{ $t('p_six') }}
             </p>
           </div>
         </div>
@@ -194,15 +216,15 @@
       <div data-aos="fade-up" class="mx-auto max-w-7xl lg:bg-transparent lg:px-8">
         <div class="lg:grid lg:grid-cols-12">
           <div class="relative z-10 lg:col-span-4 lg:col-start-1 lg:row-start-1 lg:bg-transparent lg:py-16">
-            <div class="absolute inset-x-0 h-1/2 lg:hidden" aria-hidden="true"></div>
+            <div class="absolute inset-x-0 h-1/2 lg:hidden" aria-hidden="true" />
           </div>
 
-          <div class="py-24"></div>
+          <div class="py-24" />
 
           <div id="projects" class="lg:col-span-10 lg:col-start-1 lg:row-start-1 lg:grid lg:grid-cols-10 lg:items-center lg:rounded-3xl">
             <div class="relative max-w-md space-y-6 px-6 py-12 sm:max-w-3xl sm:py-16 lg:col-span-6 lg:col-start-1 lg:max-w-none lg:p-0">
               <h2 data-aos="fade-right" class="text-left text-2xl font-semibold leading-8 text-green-500">
-                # Projetos
+                # {{ $t('projects') }}
               </h2>
             </div>
           </div>
@@ -212,7 +234,7 @@
             <div :data-aos="ind % 2 == 1 ? 'fade-left' : 'fade-right'" class="mx-auto max-w-7xl lg:bg-transparent lg:px-8">
               <div class="lg:grid lg:grid-cols-12">
                 <div class="relative z-10 lg:col-span-4 lg:col-start-1 lg:row-start-1 lg:bg-transparent lg:py-16">
-                  <div class="absolute inset-x-0 h-1/2 lg:hidden" aria-hidden="true"></div>
+                  <div class="absolute inset-x-0 h-1/2 lg:hidden" aria-hidden="true" />
                   <div class="mx-auto max-w-md px-6 sm:max-w-3xl lg:max-w-none lg:p-0">
                     <div class="aspect-h-6 aspect-w-10 sm:aspect-h-1 sm:aspect-w-2 lg:aspect-w-1">
                       <img class="rounded-3xl object-cover object-center shadow-2xl" :src="project.banner" alt="">
@@ -286,17 +308,25 @@
                       {{ project.name }}
                     </h1>
                     <p class="text-lg text-white pb-8">
-                      {{ project.description }}
+                      <span v-if="project.name === 'Moo Vegan'">
+                        {{ $t('moo_description') }}
+                      </span>
+                      <span v-if="project.name === 'Marvel Heroes'">
+                        {{ $t('marvel_description') }}
+                      </span>
+                      <span v-if="project.name === 'Pesca Furiosa'">
+                        {{ $t('fish_description') }}
+                      </span>
                     </p>
                     <p class="text-gray-400 text-sm pb-2">
-                      Tecnologias utilizadas:
+                      {{ $t('tech_stack') }}
                     </p>
                     <div class="inline-flex gap-2 flex-wrap">
                       <span v-for="tech, _ind in project.tecnologies" :key="`${_ind}-${tech}`" class="">
-                        <a v-for="item in formatTechs(tech)" :key="item.icon" :class="[item.color, 'w-fit']">
+                        <i v-for="item in formatTechs(tech)" :key="item.icon" :class="[item.color, 'w-fit text-xs' ]">
                           <Icon :name="item.icon" />
                           {{ item.name }}
-                        </a>
+                        </i>
                       </span>
                     </div>
                     <div>
@@ -351,7 +381,7 @@
         </div>
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <h2 class="text-center text-lg font-semibold leading-8 text-white">
-            Confiado por grandes startups e empresas de tecnologia
+            {{ $t('trusted_by') }}
           </h2>
           <div class="mx-auto mt-10 grid max-w-lg grid-cols-1 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-2 sm:gap-x-10 lg:mx-0 lg:max-w-none ">
             <a href="https://www.ffid.com.br" target="_blank">
@@ -376,10 +406,10 @@
         <div id="contact" data-aos="fade-right" class="lg:col-span-10 lg:col-start-1 lg:row-start-1 lg:grid lg:grid-cols-10 lg:items-center lg:rounded-3xl">
           <div class="relative max-w-md space-y-6 px-6 py-12 sm:max-w-3xl sm:py-16 lg:col-span-6 lg:col-start-2 lg:max-w-none lg:p-0">
             <h2 class="text-left text-2xl font-semibold leading-8 text-green-500 ">
-              # Contato
+              # {{ $t('contact') }}
             </h2>
             <span>
-              Entre em contato através dos meios abaixo.
+              {{ $t('contact_description') }}
               <div class="mt-4">
                 <a class="block hover:text-indigo-300" href="mailto:gabriel.aquino@outlook.com">
                   <Icon name="line-md:email" class="mr-2" />
@@ -413,12 +443,12 @@ import "aos/dist/aos.css";
 
 const app = useAppStore();
 const git = ref({} as User);
+const { locale, setLocale } = useI18n();
 
 const projects = ref([
   {
     banner: MooGIF,
     created_at: "",
-    description: "Inspirado em Daki e iFood, o Moo Vegan é um aplicativo de delivery de comida vegana.",
     link: "https://github.com/gaqno/moovegan_frontend/",
     name: "Moo Vegan",
     tecnologies: ["React", "React Native", "TailwindCSS", "JavaScript", "TypeScript"],
@@ -426,7 +456,6 @@ const projects = ref([
   {
     banner: MarvelIMG,
     created_at: "",
-    description: "CRUD de heróis da Marvel, contendo dados de personagens, quadrinhos, séries e eventos.",
     link: "https://marvel-nuxt3.vercel.app/",
     name: "Marvel Heroes",
     tecnologies: ["Vue", "Nuxt", "TailwindCSS", "JavaScript", "TypeScript"],
@@ -434,13 +463,14 @@ const projects = ref([
   {
     banner: FuriousGIF,
     created_at: "",
-    description: "Eccomerce da marca PESCA FURIOSA, com sistema de pagamento e carrinho de compras.",
     link: "https://furious-fish.vercel.app/",
     name: "Pesca Furiosa",
     tecnologies: ["Vue", "Nuxt", "TailwindCSS", "JavaScript", "TypeScript"],
   },
 ]);
+
 const fetchGit = () => {
+  app.setLoading(true);
   return new Promise((resolve, reject) => {
     fetch("https://api.github.com/users/gaqno", {
       method: "GET",
@@ -502,9 +532,7 @@ const formatTechs = (value: any) => {
 };
 
 onMounted(() => {
-  AOS.init({
-    duration: 1200,
-  });
+  AOS.init({ duration: 1200 });
   fetchGit()
     .then((data) => {
       git.value = {
@@ -512,6 +540,7 @@ onMounted(() => {
         ...data as User,
       };
     })
-    .catch(err => console.log(err));
+    .catch(err => console.warn(err))
+    .finally(() => app.setLoading(false));
 });
 </script>
