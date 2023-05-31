@@ -1,31 +1,16 @@
 <template>
   <NuxtLayout>
     <LoadingComponent v-if="app.loading" />
-    <NuxtPage
-      :transition="{
-        name: 'my',
-        mode: 'out-in',
-        onBeforeEnter
-      }"
-    />
+    <NuxtPage />
   </NuxtLayout>
 </template>
 
 <script setup>
-import LoadingComponent from "./components/loading-component.vue";
 import { useAppStore } from "./store/app";
 import "./global.css";
 
 const app = useAppStore();
-const { finalizePendingLocaleChange } = useI18n();
-
-const onBeforeEnter = async () => {
-  await finalizePendingLocaleChange();
-};
-
-useHead({
-  title: "Gabriel Aquino",
-});
+useHead({ title: "Gabriel Aquino" });
 
 </script>
 
