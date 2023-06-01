@@ -164,7 +164,7 @@
               <a
                 href="https://wa.me/+5511991610328"
                 target="_blank"
-                class="block w-full rounded-md border border-transparent bg-white px-5 py-3 text-center text-base font-medium text-blue-700 shadow-md hover:bg-slate-50 sm:inline-block sm:w-auto"
+                class="block w-full rounded-md border border-transparent bg-white px-5 py-3 text-center text-base font-medium text-blue-700 shadow-md hover:bg-slate-300 sm:inline-block sm:w-auto"
               >
                 {{ $t('contact_me') }}
               </a>
