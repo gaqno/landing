@@ -4,6 +4,7 @@ import { defineNuxtConfig } from "nuxt/config";
 export default defineNuxtConfig({
   modules: [
     // Simple usage
+    "@vueuse/nuxt",
     "@pinia/nuxt",
     "@nuxtjs/eslint-module",
     "@nuxtjs/tailwindcss",

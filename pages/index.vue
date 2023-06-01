@@ -1,5 +1,16 @@
 <template>
   <main :class="[!app.darkMode ? 'bg-gradient-to-bl from-[#0F2027] via-[#203A43] to-[#2C5364]' : 'bg-gradient-to-tr from-amber-900 via-violet-900 to-cyan-700', 'min-h-screen overflow-hidden']">
+    <div
+      id="about-me"
+      class="absolute bg-green-500/30 rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none overflow-hidden blur-3xl"
+      :style="{
+        opacity,
+        left: `${x}px`,
+        top: `${y}px`,
+        width: `${size}px`,
+        height: `${size}px`,
+      }"
+    />
     <header class="z-10 flex justify-between text-sm breadcrumbs mx-4 border-b border-gray-600">
       <button class="ml-2 block md:hidden mr-4" @click.prevent="app.toggleDarkMode">
         <Icon v-if="app.darkMode" name="line-md:moon-to-sunny-outline-loop-transition" size="1.5em" />
@@ -64,7 +75,11 @@
       <div class="absolute inset-x-0 hidden h-1/2 lg:block" aria-hidden="true" />
 
       <!-- Landing -->
-      <div id="home" data-aos="fade-up" class="mx-auto max-w-7xl lg:bg-transparent lg:px-8">
+      <div
+        id="home"
+        data-aos="fade-up"
+        class="mx-auto max-w-7xl lg:bg-transparent lg:px-8"
+      >
         <div class="lg:grid lg:grid-cols-12">
           <div class="relative z-10 lg:col-span-4 lg:col-start-1 lg:row-start-1 lg:bg-transparent lg:py-16">
             <div class="absolute inset-x-0 h-1/2 lg:hidden" aria-hidden="true" />
@@ -159,7 +174,11 @@
       </div>
 
       <!-- About Me -->
-      <div id="about-me" data-aos="fade-up" class="relative isolate z-10 mt-32 sm:mt-48">
+
+      <div
+        data-aos="fade-up"
+        class="relative isolate z-10 mt-32 sm:mt-48"
+      >
         <div class="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 justify-center overflow-hidden [mask-image:radial-gradient(50%_45%_at_50%_55%,white,transparent)]">
           <svg class="h-[40rem] w-[80rem] flex-none stroke-gray-100/30" aria-hidden="true">
             <defs>
@@ -444,7 +463,16 @@ import "aos/dist/aos.css";
 const app = useAppStore();
 const git = ref({} as User);
 const { locale, setLocale } = useI18n();
-
+const { x, y } = useMouse();
+const { width, height } = useWindowSize();
+// const logoGrandient = computed(
+//   () => `radial-gradient(circle at ${x.value}px ${y.value}px, black 30%, transparent 100%)`,
+// );
+const dx = computed(() => Math.abs(x.value - width.value / 2));
+const dy = computed(() => Math.abs(y.value - height.value / 2));
+const distance = computed(() => Math.sqrt(dx.value * dx.value + dy.value * dy.value));
+const size = computed(() => Math.min(300 - distance.value / 3, 150));
+const opacity = computed(() => Math.min(Math.max(size.value / 100, 0.7), 1));
 const projects = ref([
   {
     banner: MooGIF,
