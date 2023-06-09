@@ -502,7 +502,7 @@ const projects = ref([
   {
     banner: FuriousGIF,
     created_at: "",
-    link: "https://furious-fish.vercel.app/",
+    link: "https://pesca-furiosa.vercel.app/",
     name: "Pesca Furiosa",
     tecnologies: ["Vue", "Nuxt", "TailwindCSS", "JavaScript", "TypeScript"],
   },
