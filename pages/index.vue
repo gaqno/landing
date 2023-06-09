@@ -421,6 +421,17 @@
         </div>
       </div>
 
+      <div data-aos="fade-down" class="p-20 rounded-full">
+        <h1 data-aos="fade-left" class="text-center mb-8 text-lg font-semibold leading-8 text-white">
+          {{ $t('about') }}
+        </h1>
+        <iframe
+          src="https://drive.google.com/file/d/1GDTCfr21r7k7aFgFhPQPErD7Bm0JjRD2/preview"
+          class="w-full h-[50vh] rounded"
+          allow="autoplay"
+        />
+      </div>
+
       <div class="my-32">
         <div id="contact" data-aos="fade-right" class="lg:col-span-10 lg:col-start-1 lg:row-start-1 lg:grid lg:grid-cols-10 lg:items-center lg:rounded-3xl">
           <div class="relative max-w-md space-y-6 px-6 py-12 sm:max-w-3xl sm:py-16 lg:col-span-6 lg:col-start-2 lg:max-w-none lg:p-0">
