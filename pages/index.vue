@@ -42,27 +42,27 @@
       <ul>
         <li>
           <a href="#home">
-            Início
+            {{ $t('home') }}
           </a>
         </li>
         <li>
           <a href="#about-me">
-            Sobre mim
+            {{ $t('about') }}
           </a>
         </li>
         <li>
           <a href="#projects">
-            Projetos
+            {{ $t('projects') }}
           </a>
         </li>
         <li>
           <a href="#experience">
-            Experiência
+            {{ $t('experience') }}
           </a>
         </li>
         <li>
           <a href="#contact">
-            Contato
+            {{ $t('contact') }}
           </a>
         </li>
       </ul>
