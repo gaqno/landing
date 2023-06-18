@@ -205,7 +205,7 @@
         </div>
         <div class="mx-auto max-w-7xl px-6 lg:px-8 pt-8">
           <h2 data-aos="fade-right" class="text-left text-2xl font-semibold leading-8 text-green-500">
-            # Sobre mim
+            # {{ $t('about') }}
           </h2>
           <div class="mx-auto mt-10 grid max-w-lg grid-cols-1 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-2 sm:gap-x-10 lg:mx-0 lg:max-w-none ">
             <p data-aos="fade-up">
