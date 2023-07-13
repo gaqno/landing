@@ -327,6 +327,9 @@
                       {{ project.name }}
                     </h1>
                     <p class="text-lg text-white pb-8">
+                      <span v-if="project.name === 'Lenin GPT'">
+                        {{ $t('lenin_description') }}
+                      </span>
                       <span v-if="project.name === 'Moo Vegan'">
                         {{ $t('moo_description') }}
                       </span>
@@ -469,6 +472,7 @@ import { User } from "~/types/git";
 import MooGIF from "@/static/moo.gif";
 import MarvelIMG from "@/static/marvel-mockup.gif";
 import FuriousGIF from "@/static/furious-fish.gif";
+import LeninGIF from "@/static/lenin-gpt.gif";
 import "aos/dist/aos.css";
 
 const app = useAppStore();
@@ -485,6 +489,13 @@ const distance = computed(() => Math.sqrt(dx.value * dx.value + dy.value * dy.va
 const size = computed(() => Math.min(300 - distance.value / 3, 150));
 const opacity = computed(() => Math.min(Math.max(size.value / 100, 0.7), 1));
 const projects = ref([
+  {
+    banner: LeninGIF,
+    created_at: "",
+    link: "https://lenin-project.vercel.app",
+    name: "Lenin GPT",
+    tecnologies: ["Nuxt", "Vue", "TailwindCSS", "TypeScript", "OpenIA"],
+  },
   {
     banner: MooGIF,
     created_at: "",
@@ -525,6 +536,12 @@ const fetchGit = () => {
 
 const formatTechs = (value: any) => {
   const techs = [];
+  if (value === "OpenIA") {
+    const name = "OpenIA";
+    const color = "bg-blue-500 text-white rounded px-2 py-1";
+    const icon = "logos:openai";
+    techs.push({ color, icon, name });
+  }
   if (value === "React") {
     const name = "React";
     const color = "bg-blue-500 text-white rounded px-2 py-1";
