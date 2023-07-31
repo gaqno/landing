@@ -16,7 +16,7 @@
         <Icon v-if="app.darkMode" name="line-md:moon-to-sunny-outline-loop-transition" size="1.5em" />
         <Icon v-else name="line-md:sunny-filled-loop-to-moon-filled-transition" size="1.5em" />
       </button>
-      <label class="swap swap-rotate">
+      <label class="swap swap-rotate text-white">
         <!-- this hidden checkbox controls the state -->
         <input type="checkbox" class="hidden">
         <Icon
@@ -67,8 +67,18 @@
         </li>
       </ul>
       <button class="ml-2 hidden md:block" @click.prevent="app.toggleDarkMode">
-        <Icon v-if="app.darkMode" name="line-md:moon-to-sunny-outline-loop-transition" size="1.5em" />
-        <Icon v-else name="line-md:sunny-filled-loop-to-moon-filled-transition" size="1.5em" />
+        <Icon
+          v-if="app.darkMode"
+          class="text-white"
+          name="line-md:moon-to-sunny-outline-loop-transition"
+          size="1.5em"
+        />
+        <Icon
+          v-else
+          class="text-white"
+          name="line-md:sunny-filled-loop-to-moon-filled-transition"
+          size="1.5em"
+        />
       </button>
     </header>
     <section class="z-0 relative mt-12" aria-labelledby="join-heading">
@@ -207,7 +217,7 @@
           <h2 data-aos="fade-right" class="text-left text-2xl font-semibold leading-8 text-green-500">
             # {{ $t('about') }}
           </h2>
-          <div class="mx-auto mt-10 grid max-w-lg grid-cols-1 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-2 sm:gap-x-10 lg:mx-0 lg:max-w-none ">
+          <div class="mx-auto text-white mt-10 grid max-w-lg grid-cols-1 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-2 sm:gap-x-10 lg:mx-0 lg:max-w-none ">
             <p data-aos="fade-up">
               {{ $t('p_one') }}
             </p>
@@ -327,6 +337,9 @@
                       {{ project.name }}
                     </h1>
                     <p class="text-lg text-white pb-8">
+                      <span v-if="project.name === 'Spark'">
+                        {{ $t('spark_description') }}
+                      </span>
                       <span v-if="project.name === 'Lenin GPT'">
                         {{ $t('lenin_description') }}
                       </span>
@@ -352,16 +365,23 @@
                       </span>
                     </div>
                     <div>
-                      <a class="block w-full rounded-md border border-transparent bg-white p-1 text-center text-base font-medium text-orange-500 shadow-md hover:bg-slate-50 sm:inline-block sm:w-auto" :href="project.link" target="_blank">
-                        <span v-if="project.link.includes('github')">
+                      <a
+                        class="btn btn-primary"
+                        :href="project.link"
+                        target="_blank"
+                      >
+                        <span
+                          v-if="project.link.includes('github')"
+                        >
                           <Icon name="mdi:github" size="1.5em" />
-                          <span class="text-xs text-gray-400 ml-3">
+                          <span class="ml-3">
                             Ver no Github
                           </span>
                         </span>
-                        <span v-else>
-                          <Icon name="mdi:link" size="1.5em" />
-                          <span class="text-xs text-gray-400 ml-3">
+
+                        <span v-else class="btn btn-primary">
+                          <Icon name="mdi:link" size="1.5em" class="mr-2" />
+                          <span>
                             Visitar
                           </span>
                         </span>
@@ -420,6 +440,13 @@
                 alt="Reform"
               >
             </a>
+            <a href="https://www.redeancora.com.br/" target="_blank">
+              <img
+                class="col-span-2 w-full h-[30vh] object-contain lg:col-span-1"
+                src="@/static/rede_ancora.png"
+                alt="Reform"
+              >
+            </a>
           </div>
         </div>
       </div>
@@ -441,7 +468,7 @@
             <h2 class="text-left text-2xl font-semibold leading-8 text-green-500 ">
               # {{ $t('contact') }}
             </h2>
-            <span>
+            <span class="text-white">
               {{ $t('contact_description') }}
               <div class="mt-4">
                 <a class="block hover:text-indigo-300" href="mailto:gabriel.aquino@outlook.com">
@@ -470,6 +497,7 @@ import AOS from "aos";
 import { useAppStore } from "~/store/app";
 import { User } from "~/types/git";
 import MooGIF from "@/static/moo.gif";
+import SparkGIF from "@/static/spark.gif";
 import MarvelIMG from "@/static/marvel-mockup.gif";
 import FuriousGIF from "@/static/furious-fish.gif";
 import LeninGIF from "@/static/lenin-gpt.gif";
@@ -489,6 +517,13 @@ const distance = computed(() => Math.sqrt(dx.value * dx.value + dy.value * dy.va
 const size = computed(() => Math.min(300 - distance.value / 3, 150));
 const opacity = computed(() => Math.min(Math.max(size.value / 100, 0.7), 1));
 const projects = ref([
+  {
+    banner: SparkGIF,
+    created_at: "",
+    link: "https://gaqno-spark.vercel.app",
+    name: "Spark",
+    tecnologies: ["Nuxt", "Vue", "TailwindCSS", "TypeScript", "OpenIA"],
+  },
   {
     banner: LeninGIF,
     created_at: "",
