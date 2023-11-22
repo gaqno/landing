@@ -527,7 +527,7 @@ const projects = ref([
   {
     banner: LeninGIF,
     created_at: "",
-    link: "https://lenin-project.vercel.app",
+    link: "https://lenin-gpt.vercel.app",
     name: "Lenin GPT",
     tecnologies: ["Nuxt", "Vue", "TailwindCSS", "TypeScript", "OpenIA"],
   },
